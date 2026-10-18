@@ -1,6 +1,5 @@
 .venv/
 data/raw/
-data/processed/*.parquet
 __pycache__/
 *.pyc
 .pytest_cache/
