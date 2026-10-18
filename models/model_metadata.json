@@ -1,0 +1,63 @@
+{
+  "model_name": "Balanced Random Forest",
+  "selected_metric": "macro_f1",
+  "best_macro_f1": 0.36914295372330885,
+  "features": [
+    "number_of_vehicles",
+    "speed_limit",
+    "collision_hour",
+    "collision_month",
+    "first_road_class",
+    "road_type",
+    "junction_detail_historic",
+    "junction_control",
+    "second_road_class",
+    "pedestrian_crossing_human_control_historic",
+    "pedestrian_crossing_physical_facilities_historic",
+    "light_conditions",
+    "weather_conditions",
+    "road_surface_conditions",
+    "special_conditions_at_site",
+    "carriageway_hazards_historic",
+    "urban_or_rural_area",
+    "trunk_road_flag",
+    "police_force",
+    "day_of_week",
+    "is_night"
+  ],
+  "training_samples": 84803,
+  "test_samples": 21201,
+  "random_state": 42,
+  "classes": [
+    1,
+    2,
+    3
+  ],
+  "class_labels": [
+    "Fatal",
+    "Serious",
+    "Slight"
+  ],
+  "comparison": {
+    "Majority-Class Dummy Baseline": {
+      "macro_f1": 0.2889,
+      "accuracy": 0.7648,
+      "balanced_accuracy": 0.3333
+    },
+    "Weighted Logistic Regression": {
+      "macro_f1": 0.3493,
+      "accuracy": 0.5017,
+      "balanced_accuracy": 0.5229
+    },
+    "Balanced Random Forest": {
+      "macro_f1": 0.3691,
+      "accuracy": 0.5595,
+      "balanced_accuracy": 0.5013
+    },
+    "Histogram Gradient Boosting": {
+      "macro_f1": 0.3621,
+      "accuracy": 0.5281,
+      "balanced_accuracy": 0.5112
+    }
+  }
+}

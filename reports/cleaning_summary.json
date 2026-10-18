@@ -1,0 +1,48 @@
+{
+  "raw_total_rows": 106004,
+  "raw_total_columns": 44,
+  "target_distribution": {
+    "Slight": 81069,
+    "Serious": 23333,
+    "Fatal": 1602
+  },
+  "majority_class_pct": 76.47730274329271,
+  "geo_statistics": {
+    "total_records": 106004,
+    "missing_coordinates": 22,
+    "valid_coordinates": 105982,
+    "out_of_bounds": 0,
+    "min_longitude": -7.353562,
+    "max_longitude": 1.759829,
+    "min_latitude": 49.914329,
+    "max_latitude": 60.435892,
+    "min_easting": 79266.0,
+    "max_easting": 655345.0,
+    "min_northing": 10502.0,
+    "max_northing": 1172667.0
+  },
+  "model_features_count": 21,
+  "model_features": [
+    "number_of_vehicles",
+    "speed_limit",
+    "collision_hour",
+    "collision_month",
+    "first_road_class",
+    "road_type",
+    "junction_detail_historic",
+    "junction_control",
+    "second_road_class",
+    "pedestrian_crossing_human_control_historic",
+    "pedestrian_crossing_physical_facilities_historic",
+    "light_conditions",
+    "weather_conditions",
+    "road_surface_conditions",
+    "special_conditions_at_site",
+    "carriageway_hazards_historic",
+    "urban_or_rural_area",
+    "trunk_road_flag",
+    "police_force",
+    "day_of_week",
+    "is_night"
+  ]
+}
