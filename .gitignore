@@ -7,3 +7,15 @@ __pycache__/
 dist/
 build/
 .DS_Store
+
+# Frontend & Node
+node_modules/
+**/node_modules/
+**/dist/
+*.tsbuildinfo
+.vite/
+
+# Environment and credentials
+.env
+.env.*
+!.env.example
