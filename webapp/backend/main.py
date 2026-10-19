@@ -1,5 +1,13 @@
 """FastAPI application entrypoint for Road Accident Severity Explorer."""
 
+import sys
+from pathlib import Path
+
+# Ensure repository root is in sys.path for robust resolution in all deployment environments
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 from contextlib import asynccontextmanager
 from typing import List, Optional
 from fastapi import FastAPI, Query, HTTPException, status

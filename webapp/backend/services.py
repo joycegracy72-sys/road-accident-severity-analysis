@@ -1,6 +1,13 @@
 """Data access, geospatial querying, machine learning inference, and external services."""
 
+import sys
 from pathlib import Path
+
+# Ensure repository root is in sys.path
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 import json
 import logging
 import joblib
