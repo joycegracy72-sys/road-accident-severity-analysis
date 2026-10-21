@@ -108,3 +108,48 @@ npm run build
 - **Geographic Coverage**: The collision and hotspot datasets cover Great Britain in 2022. Collisions will only render within Great Britain bounds.
 - **Exposure Caveat**: High collision counts at specific junctions or urban centers reflect concentrated exposure rather than validated risk rates.
 - **Conditional Prediction**: The ML model predicts collision severity *conditional on a collision having occurred*; it does not predict occurrence probability.
+
+
+---
+
+## 6. Production Deployment & Live URLs
+
+### 6.1 Backend Web Service (Render)
+- **Status**: Deployed & Verified
+- **Public URL**: `https://road-accident-api.onrender.com`
+- **Health Endpoint**: `https://road-accident-api.onrender.com/api/health`
+- **API Docs (Swagger)**: `https://road-accident-api.onrender.com/docs`
+- **Configuration**:
+  - Build Command: `pip install -r requirements.txt`
+  - Start Command: `uvicorn webapp.backend.main:app --host 0.0.0.0 --port $PORT`
+  - Python Version: `3.10.11`
+
+### 6.2 Free Frontend Static Hosting Options
+
+#### Option A: GitHub Pages (Recommended — 100% Free, Automated CI/CD)
+The repository includes an automated GitHub Actions deployment workflow at [`.github/workflows/deploy-pages.yml`](../.github/workflows/deploy-pages.yml).
+- **Public Website URL**: `https://joycegracy72-sys.github.io/road-accident-severity-analysis/`
+- **Cost**: Free (No credit card or billing details required)
+- **Deployment Activation**:
+  1. In the GitHub repository, navigate to **Settings** -> **Pages**.
+  2. Under **Build and deployment** -> **Source**, select **GitHub Actions**.
+  3. Every push to `main` automatically runs frontend tests, compiles the production bundle with `VITE_API_BASE_URL=https://road-accident-api.onrender.com/api`, and publishes to GitHub Pages.
+
+#### Option B: Render Static Site (100% Free Tier, Same Platform as API)
+The repository includes a [`render.yaml`](../render.yaml) blueprint declaring both the backend and frontend services.
+- **Public Website URL**: `https://road-accident-explorer.onrender.com` (or chosen name)
+- **Cost**: Free (Render provides 100 GB/month free static bandwidth, no billing required)
+- **Deployment Settings**:
+  - Service Type: **Static Site**
+  - Name: `road-accident-explorer`
+  - Root Directory: `webapp/frontend`
+  - Build Command: `npm run build`
+  - Publish Directory: `dist`
+  - Environment Variable: `VITE_API_BASE_URL` = `https://road-accident-api.onrender.com/api`
+
+#### Option C: Vercel or Netlify (Free Hobby Tier)
+- **Framework Preset**: Vite
+- **Root Directory**: `webapp/frontend`
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Environment Variable**: `VITE_API_BASE_URL` = `https://road-accident-api.onrender.com/api`

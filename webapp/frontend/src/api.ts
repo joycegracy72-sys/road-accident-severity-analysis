@@ -7,7 +7,16 @@ import type {
   DirectionsResponse,
 } from './types';
 
-const API_BASE = '/api';
+function getApiBase(): string {
+  const envUrl = import.meta.env.VITE_API_BASE_URL;
+  if (envUrl && typeof envUrl === 'string') {
+    const trimmed = envUrl.trim().replace(/\/+$/, '');
+    return trimmed.endsWith('/api') ? trimmed : `${trimmed}/api`;
+  }
+  return import.meta.env.PROD ? 'https://road-accident-api.onrender.com/api' : '/api';
+}
+
+export const API_BASE = getApiBase();
 
 export async function fetchHealth() {
   const res = await fetch(`${API_BASE}/health`);
