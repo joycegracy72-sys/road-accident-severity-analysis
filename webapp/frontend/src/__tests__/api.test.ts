@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { fetchCollisions, postPrediction, searchLocations } from '../api';
+import { API_BASE, fetchCollisions, postPrediction, searchLocations } from '../api';
 
 describe('Frontend API Client', () => {
   beforeEach(() => {
@@ -70,7 +70,7 @@ describe('Frontend API Client', () => {
     };
 
     const res = await postPrediction(payload);
-    expect(fetchSpy).toHaveBeenCalledWith('/api/predict', {
+    expect(fetchSpy).toHaveBeenCalledWith(`${API_BASE}/predict`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
